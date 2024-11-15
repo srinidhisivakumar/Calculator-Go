@@ -11,13 +11,7 @@ func Square(a int) int {
 }
 
 // Divide performs division and returns an error if dividing by zero.
-func Divide_Case1(a, b int) (int, error) {
-	if b == 0 {
-		return 0, errors.New("Error: Can't be divided by zero")
-	}
-	return a / b, nil
-}
-func Divide_Case2(a, b int) (int, error) {
+func Divide(a, b int) (int, error) {
 	if b == 0 {
 		return 0, errors.New("Error: Can't be divided by zero")
 	}
@@ -28,16 +22,11 @@ func main() {
 	square := Square(5)
 	fmt.Println("Square:", square)
 
-	result, error := Divide_Case1(5, 0)
-	if error != nil {
-		fmt.Println("Error:", error)
+	result, err := Divide(10, 3)
+	if err != nil {
+		fmt.Println("Error:", err)
 	} else {
 		fmt.Println("Division:", result)
 	}
-	result, error = Divide_Case2(5, 5)
-	if error != nil {
-		fmt.Println("Error:", error)
-	} else {
-		fmt.Println("Division:", result)
-	}
+
 }
